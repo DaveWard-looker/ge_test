@@ -13,6 +13,7 @@ view: ge_2020_ie_constituency_details {
   }
 
   dimension: constituency_number {
+    hidden: yes
     type: number
     sql: ${TABLE}.Constituency_Number ;;
   }

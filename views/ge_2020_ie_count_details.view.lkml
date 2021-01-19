@@ -8,6 +8,7 @@ view: ge_2020_ie_count_details {
   }
 
   dimension: candidate_id {
+    primary_key: yes
     type: number
     sql: ${TABLE}.Candidate_Id ;;
   }

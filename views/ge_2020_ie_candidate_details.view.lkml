@@ -3,6 +3,7 @@ view: ge_2020_ie_candidate_details {
     ;;
 
   dimension: candidate_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.Candidate_Id ;;
   }

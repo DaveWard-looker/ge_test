@@ -69,8 +69,14 @@ view: ge_2020_ie_count_details {
   }
 
   dimension: votes {
+    hidden: yes
     type: number
     sql: ${TABLE}.Votes ;;
+  }
+
+  measure: number_of_votes {
+    type: sum
+    sql: ${votes} ;;
   }
 
   measure: count {

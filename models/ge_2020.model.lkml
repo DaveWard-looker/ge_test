@@ -10,8 +10,22 @@ datagroup: ge_2020_default_datagroup {
 
 persist_with: ge_2020_default_datagroup
 
-explore: ge_2020_ie_candidate_details {}
 
-explore: ge_2020_ie_constituency_details {}
 
-explore: ge_2020_ie_count_details {}
+explore: ireland_general_election {
+  view_label: "Count"
+  from: ge_2020_ie_count_details
+  join: ge_2020_ie_constituency_details {
+    view_label: "Constituency"
+    sql_on: ${ireland_general_election.constituency_number} = ${ge_2020_ie_constituency_details.constituency_number}
+    and ${ireland_general_election.count_number} = ${ge_2020_ie_constituency_details.count_number};;
+    relationship: many_to_one
+  }
+  join: ge_2020_ie_candidate_details {
+    view_label: "Candidate"
+    sql_on: ${ireland_general_election.candidate_id} = ${ge_2020_ie_candidate_details.candidate_id}
+    and ${ireland_general_election.constituency_number} = ${ge_2020_ie_candidate_details.constituency_number}
+    and ${ireland_general_election.count_number} = ${ge_2020_ie_candidate_details.count_number};;
+    relationship: many_to_one
+  }
+}

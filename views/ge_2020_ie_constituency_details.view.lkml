@@ -3,6 +3,7 @@ view: ge_2020_ie_constituency_details {
     ;;
 
   dimension: constituency_ainm {
+    hidden: yes
     type: string
     sql: ${TABLE}.Constituency_Ainm ;;
   }
@@ -13,12 +14,14 @@ view: ge_2020_ie_constituency_details {
   }
 
   dimension: constituency_number {
+    primary_key: yes
     hidden: yes
     type: number
     sql: ${TABLE}.Constituency_Number ;;
   }
 
   dimension: count_number {
+    hidden: yes
     type: number
     sql: ${TABLE}.Count_Number ;;
   }
@@ -49,11 +52,13 @@ view: ge_2020_ie_constituency_details {
   }
 
   dimension: quota {
+    hidden: yes
     type: number
     sql: ${TABLE}.Quota ;;
   }
 
   dimension: required_save_deposit {
+    hidden: yes
     type: number
     sql: ${TABLE}.Required_Save_Deposit ;;
   }
@@ -69,21 +74,25 @@ view: ge_2020_ie_constituency_details {
   }
 
   dimension: spoiled {
+    hidden: yes
     type: number
     sql: ${TABLE}.Spoiled ;;
   }
 
   dimension: total_electorate {
+    hidden: yes
     type: number
     sql: ${TABLE}.Total_Electorate ;;
   }
 
   dimension: total_poll {
+    hidden: yes
     type: number
     sql: ${TABLE}.Total_Poll ;;
   }
 
   dimension: valid_poll {
+    hidden: yes
     type: number
     sql: ${TABLE}.Valid_Poll ;;
   }
@@ -91,5 +100,35 @@ view: ge_2020_ie_constituency_details {
   measure: count {
     type: count
     drill_fields: [constituency_name]
+  }
+
+  measure: total_quota {
+    type: sum
+    sql: ${quota} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: electorate {
+    type: sum
+    sql: ${total_electorate} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: poll {
+    type: sum
+    sql: ${total_poll} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: total_valid_poll {
+    type: sum
+    sql: ${valid_poll} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: total_spoiled_votes {
+    type: sum
+    sql: ${spoiled} ;;
+    value_format_name: decimal_0
   }
 }

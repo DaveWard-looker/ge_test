@@ -76,7 +76,7 @@ view: ge_2020_ie_candidate_details {
     html: <img src = "http://www.google.com/s2/favicons?domain={{party_url._value}}.ie" /> {{value}} ;;
     link: {
       url: "https://www.{{party_url._value}}.ie"
-      icon_url: "https://www.google.com/s2/favicons?domain={{party_url._value}}.ie"
+      icon_url: "http://www.google.ie/search?q={{value}}&btnI"
     }
   }
 

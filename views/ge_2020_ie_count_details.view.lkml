@@ -23,6 +23,7 @@ view: ge_2020_ie_count_details {
 
 
   dimension: candidate_first_name {
+    hidden: yes
     type: string
     sql: ${TABLE}.Candidate_First_Name ;;
   }
@@ -145,6 +146,8 @@ view: ge_2020_ie_count_details {
     sql: ${non_transferable} ;;
   value_format_name: decimal_0
 }
+
+
 
 
   measure: count {

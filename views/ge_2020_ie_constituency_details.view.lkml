@@ -26,20 +26,20 @@ view: ge_2020_ie_constituency_details {
     sql: ${TABLE}.Count_Number ;;
   }
 
-  dimension_group: date_of_election {
-    type: time
-    timeframes: [
-      raw,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    convert_tz: no
-    datatype: date
-    sql: ${TABLE}.Date_Of_Election ;;
-  }
+  # dimension_group: date_of_election {
+  #   type: time
+  #   timeframes: [
+  #     raw,
+  #     date,
+  #     week,
+  #     month,
+  #     quarter,
+  #     year
+  #   ]
+  #   convert_tz: no
+  #   datatype: date
+  #   sql: ${TABLE}.Date_Of_Election ;;
+  # }
 
   dimension: number_of_candidates {
     type: number
@@ -68,7 +68,7 @@ view: ge_2020_ie_constituency_details {
     sql: ${TABLE}.Seats_Filled ;;
   }
 
-  dimension: seatsin_constit {
+  dimension: seats_in_constituency {
     type: number
     sql: ${TABLE}.SeatsinConstit ;;
   }
@@ -79,13 +79,13 @@ view: ge_2020_ie_constituency_details {
     sql: ${TABLE}.Spoiled ;;
   }
 
-  dimension: total_electorate {
+  dimension: electorate {
     hidden: yes
     type: number
     sql: ${TABLE}.Total_Electorate ;;
   }
 
-  dimension: total_poll {
+  dimension: poll {
     hidden: yes
     type: number
     sql: ${TABLE}.Total_Poll ;;
@@ -108,15 +108,15 @@ view: ge_2020_ie_constituency_details {
     value_format_name: decimal_0
   }
 
-  measure: electorate {
+  measure: total_electorate {
     type: sum
-    sql: ${total_electorate} ;;
+    sql: ${electorate} ;;
     value_format_name: decimal_0
   }
 
-  measure: poll {
+  measure: total_poll {
     type: sum
-    sql: ${total_poll} ;;
+    sql: ${poll} ;;
     value_format_name: decimal_0
   }
 
@@ -130,5 +130,17 @@ view: ge_2020_ie_constituency_details {
     type: sum
     sql: ${spoiled} ;;
     value_format_name: decimal_0
+  }
+
+  measure: turnout {
+    type: number
+    sql: 1.00*${total_poll}/nullif(${total_electorate},0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: candidates_per_seat_rate {
+    type: sum
+    sql: ${number_of_candidates}/${seats_in_constituency} ;;
+    value_format_name: decimal_2
   }
 }

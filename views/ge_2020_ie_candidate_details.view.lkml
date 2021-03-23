@@ -48,9 +48,13 @@ view: ge_2020_ie_candidate_details {
   dimension: candidate {
     type: string
     sql: concat(${firstname},' ',${surname}) ;;
+    link: {
+      icon_url: "https://www.google.com/s2/favicons?domain=irishtimes.com"
+      url: "https://www.irishtimes.com/search/search-7.4195619?q={{value | url_encode}}"
+    }
   }
 
-  dimension: gender_id {
+  dimension: gender {
     type: string
     sql: ${TABLE}.Gender_Id ;;
   }
@@ -60,9 +64,20 @@ view: ge_2020_ie_candidate_details {
     sql: ${TABLE}.Party_Abbreviation ;;
   }
 
-  dimension: party_id {
+  dimension: party_url {
+    hidden: yes
+    type: string
+    sql: replace(replace(replace(replace(replace(replace(replace(replace(replace(${party},'Green Party/ Comhaontas Glas','greenparty'),'The Labour Party','Labour'),'Solidarity - People Before Profit','pbp'),'Renua Ireland','Renua'),' ',''),'ú','u'),'á','a'),'í','i'),'é','e') ;;
+  }
+
+  dimension: party {
     type: string
     sql: ${TABLE}.Party_Id ;;
+    html: <img src = "http://www.google.com/s2/favicons?domain={{party_url._value}}.ie" /> {{value}} ;;
+    link: {
+      url: "https://www.{{party_url._value}}.ie"
+      icon_url: "https://www.google.com/s2/favicons?domain={{party_url._value}}.ie"
+    }
   }
 
   dimension: required_to_reach_quota {
@@ -78,9 +93,8 @@ view: ge_2020_ie_candidate_details {
   }
 
   dimension: result {
-    hidden: yes
     type: string
-    sql: ${TABLE}.Result ;;
+    sql: ifnull(${TABLE}.Result,'Excluded') ;;
   }
 
   dimension: surname {
@@ -90,6 +104,7 @@ view: ge_2020_ie_candidate_details {
   }
 
   dimension: votes {
+    hidden: yes
     type: number
     sql: ${TABLE}.Votes ;;
   }
@@ -107,8 +122,35 @@ view: ge_2020_ie_candidate_details {
   }
 
   measure: total_votes {
+    label: "Total First Preference Vote"
     type: sum
     sql: ${votes} ;;
     value_format_name: decimal_0
   }
+
+
+  measure: first_count_quota_attainment {
+    type: number
+    sql: 1.00*${total_votes}/nullif(${ge_2020_ie_constituency_details.total_quota},0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: share_of_electorate {
+    type: number
+    sql: ${total_votes}/${ge_2020_ie_constituency_details.total_electorate} ;;
+    value_format_name: percent_2
+  }
+
+  measure: share_of_poll {
+    type: number
+    sql: ${total_votes}/${ge_2020_ie_constituency_details.total_poll} ;;
+    value_format_name: percent_2
+  }
+
+  measure: count_of_candidates {
+    type: count_distinct
+    sql: ${primary_key} ;;
+    value_format_name: decimal_0
+  }
+
 }

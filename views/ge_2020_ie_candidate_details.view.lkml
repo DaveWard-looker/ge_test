@@ -151,6 +151,13 @@ view: ge_2020_ie_candidate_details {
     type: count_distinct
     sql: ${primary_key} ;;
     value_format_name: decimal_0
+    drill_fields: [candidate,constituency,result,total_votes]
+  }
+
+  measure: consituencies_contested {
+    type: count_distinct
+    sql: ${constituency} ;;
+    value_format_name: decimal_0
   }
 
 }

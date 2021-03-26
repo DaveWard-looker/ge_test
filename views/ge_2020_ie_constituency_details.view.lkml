@@ -149,4 +149,11 @@ view: ge_2020_ie_constituency_details {
     sql: ${seats_filled} ;;
     value_format_name: decimal_0
     }
+
+    measure: max_quota {
+      label: "Election Quota"
+      type: max
+      sql: ${quota} ;;
+      value_format_name: decimal_0
+    }
 }

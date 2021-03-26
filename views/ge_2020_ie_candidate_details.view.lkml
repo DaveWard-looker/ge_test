@@ -49,8 +49,9 @@ view: ge_2020_ie_candidate_details {
     type: string
     sql: concat(${firstname},' ',${surname}) ;;
     link: {
+      label: "Irish Times Articles on {{value}}"
       icon_url: "https://www.google.com/s2/favicons?domain=irishtimes.com"
-      url: "https://www.irishtimes.com/search/search-7.4195619?q={{value | url_encode}}"
+      url: "https://www.irishtimes.com/search/search-7.4195619?q=%22{{value | url_encode}}%22"
     }
   }
 
@@ -75,8 +76,9 @@ view: ge_2020_ie_candidate_details {
     sql: ${TABLE}.Party_Id ;;
     html: <img src = "http://www.google.com/s2/favicons?domain={{party_url._value}}.ie" /> {{value}} ;;
     link: {
-      url: "https://www.{{party_url._value}}.ie"
-      icon_url: "http://www.google.ie/search?q={{value}}&btnI"
+      label: "{{value}} Website"
+      url: "http://www.google.ie/search?q={{value}}&btnI"
+      icon_url: "http://www.google.com/s2/favicons?domain={{party_url._value}}.ie"
     }
   }
 

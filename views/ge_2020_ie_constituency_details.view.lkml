@@ -143,4 +143,10 @@ view: ge_2020_ie_constituency_details {
     sql: ${number_of_candidates}/${seats_in_constituency} ;;
     value_format_name: decimal_2
   }
+
+  measure: seats_filled_this_count {
+    type: max
+    sql: ${seats_filled} ;;
+    value_format_name: decimal_0
+    }
 }

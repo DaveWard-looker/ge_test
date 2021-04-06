@@ -9,11 +9,13 @@ view: ge_2020_ie_constituency_details {
   }
 
   dimension: constituency_name {
+    label: "constituency_name"
     type: string
     sql: ${TABLE}.Constituency_Name ;;
   }
 
   dimension: constituency_number {
+    label: "constituency_number"
     primary_key: yes
     hidden: yes
     type: number
@@ -21,6 +23,7 @@ view: ge_2020_ie_constituency_details {
   }
 
   dimension: count_number {
+    label: "count_number"
     hidden: yes
     type: number
     sql: ${TABLE}.Count_Number ;;
@@ -42,11 +45,13 @@ view: ge_2020_ie_constituency_details {
   # }
 
   dimension: number_of_candidates {
+    label: "number_of_candidates"
     type: number
     sql: ${TABLE}.Number_Of_Candidates ;;
   }
 
   dimension: number_of_seats {
+    label: "number_of_seats"
     type: number
     sql: ${TABLE}.Number_of_Seats ;;
   }

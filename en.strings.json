@@ -1,6 +1,6 @@
 
 {
-"constituency":"constituency",
-"constituency_name":"constituency_name",
-"number_of_seats":"number_of_seats"
+"constituency":"Constituency",
+"constituency_name":"Constituency Name",
+"number_of_seats":"Number Of Seats"
 }

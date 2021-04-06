@@ -11,7 +11,6 @@ datagroup: ge_2020_default_datagroup {
 
 persist_with: ge_2020_default_datagroup
 
-explore: fact_ndt {}
 
 explore: ireland_general_election {
   label: "Ireland General Election"

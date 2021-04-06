@@ -20,5 +20,22 @@
 "constituency":"Constituency",
 "number_of_seats":"Number of Seats",
 "Ireland General Election":"Ireland General Election",
-"count_number":"Count Number"
+"count_number":"Count Number",
+"number_of_candidates":"Number of Candidates",
+"seats_in_constituency":"Seats in Constituency",
+"seats_filled":"Seats Filled",
+"total_quota":"Total Quota",
+"total_electorate":"Total Electorate",
+"total_poll":"Total Poll",
+"total_valid_poll":"Total Valid Poll",
+"total_spoiled_votes":"Total Spoiled Votes",
+"turnout":"Turnout",
+"candidates_per_seat_rate":"Candidates Per Seat Rate",
+"seats_filled_this_count":"Seats Filled This Count",
+"total_first_preference_vote":"Total First Preference Vote",
+"total_votes_this_count":"Total votes this count",
+"total_transfers":"total transfers",
+"total_required_to_save_deposit":"total required to save deposit",
+"total_required_to_reach_quota":"total required to reach quota",
+"total_non_transferable":"total non transferable"
 }

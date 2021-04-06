@@ -14,6 +14,7 @@ persist_with: ge_2020_default_datagroup
 explore: fact_ndt {}
 
 explore: ireland_general_election {
+  label: "Ireland General Election"
   query: constituency {
     dimensions: [ge_2020_ie_candidate_details.constituency]
     measures: [ge_2020_ie_candidate_details.first_count_quota_attainment]

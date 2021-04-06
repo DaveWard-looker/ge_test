@@ -2,5 +2,19 @@
 {
 "constituency":"Constituency",
 "constituency_name":"Constituency Name",
-"number_of_seats":"Number Of Seats"
+"number_of_seats":"Number Of Seats",
+"Link to Party Website":"Link to Party Website",
+"gender":"Gender",
+"party_abbreviation":"Party Abbreviation",
+"required_to_reach_quota":"Required to Reach Quota",
+"required_to_save_deposit":"Required to Save Deposit",
+"result":"Result",
+"total_required_to_reach_total":"Total Required to Reach Total",
+"total_required_to_save_deposit":"Total Required to Save Deposit",
+"Total First Preference Vote":"Total First Preference Vote",
+"first_count_quota_attainment":"First Count Quota Attainment",
+"share_of_electorate":"Share of Electorate",
+"share_of_poll":"Share of Poll",
+"count_of_candidates":"Count of Candidates",
+"consituencies_contested":"Consituencies Contested"
 }

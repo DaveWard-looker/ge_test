@@ -55,11 +55,13 @@ view: ge_2020_ie_candidate_details {
   }
 
   dimension: gender {
+    label: "gender"
     type: string
     sql: ${TABLE}.Gender_Id ;;
   }
 
   dimension: party_abbreviation {
+    label: "party_abbreviation"
     type: string
     sql: ${TABLE}.Party_Abbreviation ;;
   }
@@ -82,18 +84,21 @@ view: ge_2020_ie_candidate_details {
   }
 
   dimension: required_to_reach_quota {
+    label: "required_to_reach_quota"
     hidden: yes
     type: number
     sql: ${TABLE}.Required_To_Reach_Quota ;;
   }
 
   dimension: required_to_save_deposit {
+    label: "required_to_save_deposit"
     hidden: yes
     type: number
     sql: ${TABLE}.Required_To_Save_Deposit ;;
   }
 
   dimension: result {
+    label: "result"
     type: string
     sql: ifnull(${TABLE}.Result,'Excluded') ;;
   }
@@ -111,12 +116,14 @@ view: ge_2020_ie_candidate_details {
   }
 
   measure: total_required_to_reach_total {
+    label: "total_required_to_reach_total"
     type: sum
     value_format_name: decimal_0
     sql: ${required_to_reach_quota} ;;
   }
 
   measure: total_required_to_save_deposit {
+    label: "total_required_to_save_deposit"
     type: sum
     value_format_name: decimal_0
     sql: ${required_to_save_deposit} ;;
@@ -131,24 +138,28 @@ view: ge_2020_ie_candidate_details {
 
 
   measure: first_count_quota_attainment {
+    label: "first_count_quota_attainment"
     type: number
     sql: 1.00*${total_votes}/nullif(${ge_2020_ie_constituency_details.total_quota},0) ;;
     value_format_name: percent_2
   }
 
   measure: share_of_electorate {
+    label: "share_of_electorate"
     type: number
     sql: ${total_votes}/${ge_2020_ie_constituency_details.total_electorate} ;;
     value_format_name: percent_2
   }
 
   measure: share_of_poll {
+    label: "share_of_poll"
     type: number
     sql: ${total_votes}/${ge_2020_ie_constituency_details.total_poll} ;;
     value_format_name: percent_2
   }
 
   measure: count_of_candidates {
+    label: "count_of_candidates"
     type: count_distinct
     sql: ${primary_key} ;;
     value_format_name: decimal_0
@@ -156,6 +167,7 @@ view: ge_2020_ie_candidate_details {
   }
 
   measure: consituencies_contested {
+    label: "consituencies_contested"
     type: count_distinct
     sql: ${constituency} ;;
     value_format_name: decimal_0

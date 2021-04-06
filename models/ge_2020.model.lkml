@@ -18,10 +18,10 @@ explore: ireland_general_election {
     dimensions: [ge_2020_ie_candidate_details.constituency]
     measures: [ge_2020_ie_candidate_details.first_count_quota_attainment]
   }
-  access_filter: {
-    field: constituency_name
-    user_attribute: constituency
-  }
+  # access_filter: {
+  #   field: constituency_name
+  #   user_attribute: constituency
+  # }
   view_label: "Count"
   from: ge_2020_ie_count_details
   join: ge_2020_ie_constituency_details {

@@ -16,5 +16,7 @@
 "share_of_electorate":"Share of Electorate",
 "share_of_poll":"Share of Poll",
 "count_of_candidates":"Count of Candidates",
-"consituencies_contested":"Consituencies Contested"
+"consituencies_contested":"Consituencies Contested",
+"constituency":"Constituency",
+"number_of_seats":"nombre de places"
 }

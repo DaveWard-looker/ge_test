@@ -16,5 +16,7 @@
 "share_of_electorate":"Part de l'électorat",
 "share_of_poll":"Part du sondage",
 "count_of_candidates":"Nombre de candidats",
-"consituencies_contested":"Consituations contestées"
+"consituencies_contested":"Consituations contestées",
+"constituency":"Constituency",
+"number_of_seats":"nombre de places"
 }

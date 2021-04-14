@@ -13,7 +13,7 @@ view: fact_ndt {
     }
   }
   dimension: candidate {
-    label: "Candidate Candidate"
+    label: "Candidate"
   }
   dimension: party {
     label: "Candidate Party"

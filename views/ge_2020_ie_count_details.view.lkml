@@ -2,24 +2,31 @@ view: ge_2020_ie_count_details {
   derived_table: {
     sql:
     SELECT
-      Constituency_Name
-      ,Candidate_surname
-      ,Candidate_First_Name
-      ,Result
-      ,Count_Number
-      ,Non_Transferable
-      ,Occurred_On_Count
-      ,Required_To_Reach_Quota
-      ,Required_To_Save_Deposit
-      ,Transfers
-      ,Votes
-      ,Total_Votes
-      ,Constituency_Number
-      ,Candidate_Id
-  FROM `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Count_Details`
-  where Count_Number <= Occurred_On_Count OR Occurred_On_Count = 0
+      count.Constituency_Name
+      ,count.Candidate_surname
+      ,count.Candidate_First_Name
+      ,count.Result
+      ,count.Count_Number
+      ,count.Non_Transferable
+      ,count.Occurred_On_Count
+      ,count.Required_To_Reach_Quota
+      ,count.Required_To_Save_Deposit
+      ,count.Transfers
+      ,count.Votes
+      ,count.Total_Votes
+      ,count.Constituency_Number
+      ,count.Candidate_Id
+  FROM `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Count_Details` as count
+  where
+count.Count_Number <= Occurred_On_Count OR count.Occurred_On_Count = 0
     ;;
   }
+
+  filter: constituency_filter {
+    label: "Constituency"
+    type: string
+  }
+
 
 
   dimension: candidate_first_name {

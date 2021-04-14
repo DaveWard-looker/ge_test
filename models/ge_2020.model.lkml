@@ -5,11 +5,16 @@ include: "/views/**/*.view"
 
 
 datagroup: ge_2020_default_datagroup {
-  sql_trigger: SELECT current_timestamp() ;;
+  sql_trigger: SELECT count(*) FROM `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Count_Details` ;;
   max_cache_age: "200 hour"
 }
 
 persist_with: ge_2020_default_datagroup
+
+explore: constituency {
+  from: ge_2020_ie_constituency_details
+  hidden: yes
+}
 
 
 explore: ireland_general_election {

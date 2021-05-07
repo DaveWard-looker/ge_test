@@ -2,24 +2,31 @@ view: ge_2020_ie_count_details {
   derived_table: {
     sql:
     SELECT
-      Constituency_Name
-      ,Candidate_surname
-      ,Candidate_First_Name
-      ,Result
-      ,Count_Number
-      ,Non_Transferable
-      ,Occurred_On_Count
-      ,Required_To_Reach_Quota
-      ,Required_To_Save_Deposit
-      ,Transfers
-      ,Votes
-      ,Total_Votes
-      ,Constituency_Number
-      ,Candidate_Id
-  FROM `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Count_Details`
-  where Count_Number <= Occurred_On_Count OR Occurred_On_Count = 0
+      count.Constituency_Name
+      ,count.Candidate_surname
+      ,count.Candidate_First_Name
+      ,count.Result
+      ,count.Count_Number
+      ,count.Non_Transferable
+      ,count.Occurred_On_Count
+      ,count.Required_To_Reach_Quota
+      ,count.Required_To_Save_Deposit
+      ,count.Transfers
+      ,count.Votes
+      ,count.Total_Votes
+      ,count.Constituency_Number
+      ,count.Candidate_Id
+  FROM `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Count_Details` as count
+  where
+count.Count_Number <= Occurred_On_Count OR count.Occurred_On_Count = 0
     ;;
   }
+
+  filter: constituency_filter {
+    label: "Constituency"
+    type: string
+  }
+
 
 
   dimension: candidate_first_name {
@@ -60,6 +67,7 @@ view: ge_2020_ie_count_details {
   }
 
   dimension: count_number {
+    label: "count_number"
     type: number
     sql: ${TABLE}.Count_Number ;;
   }
@@ -99,6 +107,7 @@ view: ge_2020_ie_count_details {
   }
 
   dimension: result {
+    label: "result"
     type: string
     sql: case when ${TABLE}.Result is null then 'Running' else ${TABLE}.Result end  ;;
   }
@@ -122,36 +131,42 @@ view: ge_2020_ie_count_details {
   }
 
   measure: total_first_preference_vote {
+    label: "total_first_preference_vote"
     type: sum
     sql: ${first_preference_vote} ;;
     value_format_name: decimal_0
   }
 
   measure: total_votes_this_count {
+    label: "total_votes_this_count"
     type: sum
     sql: ${votes_this_count}  ;;
   value_format_name: decimal_0
 }
 
   measure: total_transfers {
+    label: "total_transfers"
     type: sum
     sql: ${transfers} ;;
   value_format_name: decimal_0
 }
 
   measure: total_required_to_save_deposit {
+    label: "total_required_to_save_deposit"
     type: sum
     sql: ${required_to_save_deposit}  ;;
   value_format_name: decimal_0
 }
 
   measure: total_required_to_reach_quota {
+    label: "total_required_to_reach_quota"
     type: sum
     sql: ${required_to_reach_quota} ;;
   value_format_name: decimal_0
 }
 
   measure: total_non_transferable {
+    label: "total_non_transferable"
     type: sum
     sql: ${non_transferable} ;;
   value_format_name: decimal_0

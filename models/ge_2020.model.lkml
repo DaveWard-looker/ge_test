@@ -16,6 +16,7 @@ explore: constituency {
   hidden: yes
 }
 
+explore: fact_eliminations {}
 
 explore: ireland_general_election {
   label: "Ireland General Election"
@@ -38,6 +39,12 @@ explore: ireland_general_election {
     view_label: "Candidate"
     sql_on: ${ireland_general_election.candidate_id} = ${ge_2020_ie_candidate_details.candidate_id}
     and ${ireland_general_election.constituency_number} = ${ge_2020_ie_candidate_details.constituency_number};;
+    relationship: many_to_one
+  }
+  join: fact_eliminations {
+    view_label: "Candidate"
+    sql_on: ${ireland_general_election.constituency_number} = ${fact_eliminations.constituency_number}
+    AND ${ireland_general_election.count_number} =${fact_eliminations.elimination_count} ;;
     relationship: many_to_one
   }
 }

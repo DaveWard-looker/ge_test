@@ -1,10 +1,12 @@
 
 {
-"is any value":"est n'importe quelle valeur",
-"constituency":"circonscription électorale",
-"constituency_name":"nom de la circonscription",
-"number_of_seats":"nombre de places",
-"Link to Party Website":"Lien vers le \r site \"Web du parti",
+"Party Dashboard":"Party-Dashboard",
+"any value":"beliebiger Wert",
+"is any value":"ist irgendein Wert",
+"constituency":"Wahlkreis",
+"constituency_name":"Name des Wahlkreises",
+"number_of_seats":"Anzahl Sitzplätze",
+"Link to Party Website":"Tinte auf Party-Website",
 "gender":"le sexe",
 "party_abbreviation":"abréviation du parti",
 "required_to_reach_quota":"Requis pour atteindre le quota",

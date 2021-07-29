@@ -16,7 +16,9 @@ explore: constituency {
   hidden: yes
 }
 
-explore: fact_eliminations {}
+explore: fact_eliminations {
+  hidden: yes
+}
 
 explore: ireland_general_election {
   label: "Ireland General Election"

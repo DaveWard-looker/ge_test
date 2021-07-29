@@ -4,7 +4,7 @@ project_name: "ge_2020"
 # # on this instance with include: statements
 #
 # local_dependency: {
-#   project: "name_of_other_project"
+#   project: "elections"
 # }
 
 localization_settings: {

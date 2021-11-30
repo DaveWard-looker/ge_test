@@ -135,6 +135,7 @@ view: ge_2020_ie_candidate_details {
     type: sum
     sql: ${votes} ;;
     value_format_name: decimal_0
+    html: @{positive_format} ;;
   }
 
 

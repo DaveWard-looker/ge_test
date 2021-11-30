@@ -54,6 +54,7 @@ view: ge_2020_ie_constituency_details {
     label: "number_of_seats"
     type: number
     sql: ${TABLE}.Number_of_Seats ;;
+    bypass_suggest_restrictions: yes
   }
 
   dimension: quota {
@@ -164,6 +165,7 @@ view: ge_2020_ie_constituency_details {
     type: max
     sql: ${seats_filled} ;;
     value_format_name: decimal_0
+    html: @{positive_format} ;;
     }
 
     measure: max_quota {

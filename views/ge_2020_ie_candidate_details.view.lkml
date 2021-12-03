@@ -45,6 +45,17 @@ view: ge_2020_ie_candidate_details {
     sql: ${TABLE}.Firstname ;;
   }
 
+  dimension: party {
+    type: string
+    sql: ${TABLE}.Party_Id ;;
+    html: <img src = "http://www.google.com/s2/favicons?domain={{party_url._value}}.ie" /> {{value}} ;;
+    link: {
+      label: "Link to Party Website"
+      url: "http://www.google.ie/search?q={{value}}&btnI"
+      icon_url: "http://www.google.com/s2/favicons?domain={{party_url._value}}.ie"
+    }
+  }
+
   dimension: candidate {
     type: string
     sql: concat(${firstname},' ',${surname}) ;;
@@ -73,16 +84,7 @@ view: ge_2020_ie_candidate_details {
     sql: replace(replace(replace(replace(replace(replace(replace(replace(replace(${party},'Green Party/ Comhaontas Glas','greenparty'),'The Labour Party','Labour'),'Solidarity - People Before Profit','pbp'),'Renua Ireland','Renua'),' ',''),'ú','u'),'á','a'),'í','i'),'é','e') ;;
   }
 
-  dimension: party {
-    type: string
-    sql: ${TABLE}.Party_Id ;;
-    html: <img src = "http://www.google.com/s2/favicons?domain={{party_url._value}}.ie" /> {{value}} ;;
-    link: {
-      label: "Link to Party Website"
-      url: "http://www.google.ie/search?q={{value}}&btnI"
-      icon_url: "http://www.google.com/s2/favicons?domain={{party_url._value}}.ie"
-    }
-  }
+
 
   dimension: required_to_reach_quota {
     label: "required_to_reach_quota"

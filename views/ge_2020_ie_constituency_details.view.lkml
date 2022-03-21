@@ -29,20 +29,21 @@ view: ge_2020_ie_constituency_details {
     sql: ${TABLE}.Count_Number ;;
   }
 
-  # dimension_group: date_of_election {
-  #   type: time
-  #   timeframes: [
-  #     raw,
-  #     date,
-  #     week,
-  #     month,
-  #     quarter,
-  #     year
-  #   ]
-  #   convert_tz: no
-  #   datatype: date
-  #   sql: ${TABLE}.Date_Of_Election ;;
-  # }
+  dimension_group: date_of_election {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year,
+      day_of_week
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.Date_Of_Election ;;
+  }
 
   dimension: number_of_candidates {
     label: "number_of_candidates"

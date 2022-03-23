@@ -30,9 +30,5 @@ view: fact_ndt {
     value_format: "#,##0"
     type: number
   }
-  dimension: total_non_transferable {
-    label: "Count Total Non Transferable"
-    value_format: "#,##0"
-    type: number
-  }
+
 }

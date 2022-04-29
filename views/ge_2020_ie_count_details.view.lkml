@@ -27,7 +27,34 @@ count.Count_Number <= Occurred_On_Count OR count.Occurred_On_Count = 0
     type: string
   }
 
+  parameter: multi_view_test {
+    type: unquoted
+    allowed_value: {
+      label: "total first preference vote"
+      value: "total_first_preference_vote"
+    }
+    allowed_value: {
+      label: "total spoiled votes"
+      value: "total_spoiled_votes"
+    }
+    allowed_value: {
+      label: "total_transfers"
+      value: "total_transfers"
+    }
+  }
 
+  measure: multiview_measure {
+    type: number
+    sql:
+    {% if multi_view_test._parameter_value == 'total_first_preference_vote' %}
+    ${total_first_preference_vote}
+    {% elsif  multi_view_test._parameter_value == 'total_spoiled_votes' %}
+    ${total_transfers}
+    {% else %}
+    ${required_to_save_deposit}
+    {% endif %}
+    ;;
+  }
 
   dimension: candidate_first_name {
     hidden: yes

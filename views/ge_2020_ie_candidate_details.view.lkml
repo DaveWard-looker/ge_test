@@ -64,6 +64,7 @@ view: ge_2020_ie_candidate_details {
       icon_url: "https://www.google.com/s2/favicons?domain=irishtimes.com"
       url: "https://www.irishtimes.com/search/search-7.4195619?q=%22{{value | url_encode}}%22"
     }
+    drill_fields: [candidate,constituency,result,total_votes]
   }
 
   dimension: gender {
@@ -123,6 +124,7 @@ view: ge_2020_ie_candidate_details {
     type: sum
     value_format_name: decimal_0
     sql: ${required_to_reach_quota} ;;
+    drill_fields: [candidate,constituency,result,total_votes]
   }
 
   measure: total_required_to_save_deposit {
@@ -130,6 +132,7 @@ view: ge_2020_ie_candidate_details {
     type: sum
     value_format_name: decimal_0
     sql: ${required_to_save_deposit} ;;
+    drill_fields: [candidate,constituency,result,total_votes]
   }
 
   measure: total_votes {
@@ -138,6 +141,7 @@ view: ge_2020_ie_candidate_details {
     sql: ${votes} ;;
     value_format_name: decimal_0
     html: @{positive_format} ;;
+    drill_fields: [candidate,constituency,result,total_votes]
   }
 
 
@@ -146,6 +150,7 @@ view: ge_2020_ie_candidate_details {
     type: number
     sql: 1.00*${total_votes}/nullif(${ge_2020_ie_constituency_details.total_quota},0) ;;
     value_format_name: percent_2
+    drill_fields: [candidate,constituency,result,total_votes]
   }
 
   measure: share_of_electorate {
@@ -153,6 +158,7 @@ view: ge_2020_ie_candidate_details {
     type: number
     sql: ${total_votes}/${ge_2020_ie_constituency_details.total_electorate} ;;
     value_format_name: percent_2
+    drill_fields: [candidate,constituency,result,total_votes]
   }
 
   measure: share_of_poll {
@@ -160,6 +166,7 @@ view: ge_2020_ie_candidate_details {
     type: number
     sql: ${total_votes}/${ge_2020_ie_constituency_details.total_poll} ;;
     value_format_name: percent_2
+    drill_fields: [candidate,constituency,result,total_votes]
   }
 
   measure: count_of_candidates {
@@ -175,6 +182,7 @@ view: ge_2020_ie_candidate_details {
     type: count_distinct
     sql: ${constituency} ;;
     value_format_name: decimal_0
+    drill_fields: [candidate,constituency,result,total_votes]
   }
 
 }

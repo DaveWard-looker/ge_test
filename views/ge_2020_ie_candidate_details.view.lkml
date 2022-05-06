@@ -185,4 +185,9 @@ view: ge_2020_ie_candidate_details {
     drill_fields: [candidate,constituency,result,total_votes]
   }
 
+  measure: count_of_party {
+    type: count_distinct
+    sql: ${party} ;;
+  }
+
 }
